@@ -29,9 +29,9 @@ public class CardStacks : MonoBehaviour
             if (_parent.transform.position.y >= other.gameObject.transform.position.y)
             {
                 _topCard = gameObject;
-                    
+
                 _botCard = other.gameObject;
-                _parent.GetComponent<CardMove>().CardNeighbor = other.gameObject; 
+                _parent.GetComponent<CardMove>().CardNeighbor = other.gameObject;
             }
             else
             {
@@ -66,26 +66,26 @@ public class CardStacks : MonoBehaviour
         GameObject cardToAdd = _parent.GetComponent<CardMove>().CardNeighbor;
 
         int i = 0;
-        
+
         while (cardToAdd != null || i == 15)
         {
             cardsObj.Add(cardToAdd);
-            
-            if (cardToAdd.GetComponent<CardMove>().CardNeighbor != null)
-            {
-                cardToAdd = cardToAdd.GetComponent<CardMove>().CardNeighbor;
 
-                if (cardsObj.Contains(cardToAdd))
-                {
-                    cardsObj.Add(cardToAdd);
-                }
+            var cardNeighbor = cardToAdd.GetComponent<CardMove>().CardNeighbor;
+            if (cardNeighbor != null && !cardsObj.Contains(cardNeighbor))
+            {
+                cardToAdd = cardNeighbor;
             }
             else
             {
                 cardToAdd = null;
             }
-
             i++;
+        }
+
+        foreach (var card in cardsObj)
+        {
+            print(card.name);
         }
 
         // Convert to list of Card
@@ -96,7 +96,7 @@ public class CardStacks : MonoBehaviour
         }
 
         cards.Reverse();
-       
+
         OperationsManager.Instance.GoCalcul(cards);
     }
 }
