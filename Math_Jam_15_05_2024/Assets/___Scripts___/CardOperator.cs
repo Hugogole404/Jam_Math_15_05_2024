@@ -28,9 +28,9 @@ public class CardOperator : Card
             case Operators.Multiply:
                 SetText($"*");
                 break;
-            case Operators.DivideEucli:
-                SetText($"/");
-                break;
+            // case Operators.DivideEucli:
+            //     SetText($"/");
+            //     break;
         }
 
         Operator = newOpe;
@@ -42,6 +42,5 @@ public enum Operators
     Sum = 0,
     Substract = 1,
     Multiply = 2,
-    DivideEucli = 3,
     Equal = 4
 }

@@ -48,6 +48,8 @@ public class OperationsManager : MonoBehaviour
         print("go calcul");
         var SortedCards = _cardOrderManager.SortCard(_cards);
         
+        
+        
         float result = Calculate(SortedCards);
         
         // Afficher le résultat ou un message d'erreur si le calcul est impossible
@@ -73,7 +75,7 @@ public class OperationsManager : MonoBehaviour
         {
             return float.NaN; // Renvoyer NaN si le premier élément n'est pas un chiffre
         }
-
+    
         // Parcourir les cartes suivantes et appliquer les opérateurs
         for (int i = 1; i < cards.Count; i++)
         {
@@ -115,17 +117,17 @@ public class OperationsManager : MonoBehaviour
                             return float.NaN;
                         }
                         break;
-                    case Operators.DivideEucli:
-                        if (i + 1 < cards.Count && cards[i + 1] is CardNumber && ((CardNumber)cards[i + 1]).Value != 0)
-                        {
-                            result /= ((CardNumber)cards[i + 1]).Value;
-                            i++;
-                        }
-                        else
-                        {
-                            return float.NaN;
-                        }
-                        break;
+                    // case Operators.DivideEucli:
+                    //     if (i + 1 < cards.Count && cards[i + 1] is CardNumber && ((CardNumber)cards[i + 1]).Value != 0)
+                    //     {
+                    //         result /= ((CardNumber)cards[i + 1]).Value;
+                    //         i++;
+                    //     }
+                    //     else
+                    //     {
+                    //         return float.NaN;
+                    //     }
+                        // break;
                     case Operators.Equal:
                         // Ne rien faire pour l'opérateur égal, il a déjà été pris en compte dans le calcul précédent
                         break;
@@ -136,7 +138,7 @@ public class OperationsManager : MonoBehaviour
                 return float.NaN; // Renvoyer NaN si une carte autre qu'un opérateur est trouvée
             }
         }
-
+    
         return result;
     }
 }
