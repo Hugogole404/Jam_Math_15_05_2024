@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2892838518570336070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.006198406
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989027995089642501, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_Name
+      value: CardOpe Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8989027995089642501, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1562509023521660539}
+  m_SourcePrefab: {fileID: 100100000, guid: 8b846dd8061bfe54da448d1a1291a6e9, type: 3}
+--- !u!114 &1635430286547382233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4510172920322052255, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2892838518570336070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &6096215950719163203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8989027995089642501, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2892838518570336070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1562509023521660539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096215950719163203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590cb2f44023ce447aab49b65e524440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _textDisplay: {fileID: 1635430286547382233}
+  <Operator>k__BackingField: 0
