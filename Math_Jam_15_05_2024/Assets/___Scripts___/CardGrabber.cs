@@ -29,15 +29,17 @@ public class CardGrabber : MonoBehaviour
                 RaycastHit hit = CastRay();
                 if (hit.collider != null)
                 {
-                    if (!hit.collider.gameObject.GetComponent<CardMove>())
+                    if (!hit.collider.gameObject.GetComponent<CardStacks>())
                     {
                         return;
                     }
-                    _selectedObject = hit.collider.gameObject;
+                    _selectedObject = hit.collider.gameObject.transform.parent.gameObject;
+                    _selectedObject.GetComponent<Rigidbody>().freezeRotation = false;
                     if (_wantCursorVisibility) Cursor.visible = false;
                 }
                 else
                 {
+                    //_selectedObject.GetComponent<Rigidbody>().freezeRotation = false;
                     Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, _camera.WorldToScreenPoint(_selectedObject.transform.position).z);
                     Vector3 worldPosition = _camera.ScreenToWorldPoint(position);
                     _selectedObject.transform.position = new Vector3(worldPosition.x, 0f, worldPosition.z);
@@ -49,6 +51,7 @@ public class CardGrabber : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            _selectedObject.GetComponent<Rigidbody>().freezeRotation = true;
             _selectedObject = null;
             if (_wantCursorVisibility) Cursor.visible = true;
         }

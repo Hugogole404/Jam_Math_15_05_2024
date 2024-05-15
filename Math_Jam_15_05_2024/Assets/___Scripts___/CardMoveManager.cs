@@ -5,4 +5,5 @@ using UnityEngine;
 public class CardMoveManager : MonoBehaviour
 {
     public Camera Camera;
+    public float OffsetStackCards;
 }

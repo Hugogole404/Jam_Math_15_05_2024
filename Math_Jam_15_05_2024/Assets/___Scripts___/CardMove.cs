@@ -11,6 +11,7 @@ public class CardMove : MonoBehaviour
     Camera _camera;
     CardMoveManager _manager;
 
+
     private void Start()
     {
         _manager = FindObjectOfType<CardMoveManager>();
