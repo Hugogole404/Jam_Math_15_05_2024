@@ -7,15 +7,19 @@ using UnityEngine;
 public class CardNumber : Card
 {
     [field:SerializeField] public int Value { get; set; }
+    public bool CanBeCut { get; set; }
 
     private void Start()
     {
-        Init(Value);
     }
 
-    public void Init(int newValue)
+    public void Init(int newValue, bool canBeCut)
     {
+        CanBeCut = canBeCut;
+        
+        if(newValue != 0)
+            Value = newValue;
+        
         SetText($"{newValue}");
-        Value = newValue;
     }
 }
