@@ -20,7 +20,7 @@ public class CutInHalfCard : MonoBehaviour
         if(!_canCut) return;
         
         var card = other.GetComponent<CardNumber>();
-        if (card != null && card.CanBeCut)
+        if (card != null && card.CanBeCut && card.Value > 1)
         {
             // print("detect card for cut");
             CutCard(other.GetComponent<CardNumber>());
