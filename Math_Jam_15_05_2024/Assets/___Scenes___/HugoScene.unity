@@ -621,6 +621,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wantCursorVisibility: 1
   _heightToHoldCard: 0.15
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1590277646
 GameObject:
   m_ObjectHideFlags: 0

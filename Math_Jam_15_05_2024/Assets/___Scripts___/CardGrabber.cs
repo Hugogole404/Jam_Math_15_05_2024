@@ -6,6 +6,7 @@ public class CardGrabber : MonoBehaviour
 {
     [SerializeField] bool _wantCursorVisibility;
     [SerializeField] float _heightToHoldCard;
+    [SerializeField] LayerMask _layerMask;
     CardMoveManager _manager;
     Camera _camera;
     GameObject _selectedObject;
@@ -17,7 +18,7 @@ public class CardGrabber : MonoBehaviour
         Vector3 wolrdPosFar = _camera.ScreenToWorldPoint(screenMousePosFar);
         Vector3 wolrdPosNear = _camera.ScreenToWorldPoint(screenMousePosNear);
         RaycastHit hit;
-        Physics.Raycast(wolrdPosNear, wolrdPosFar - wolrdPosNear, out hit);
+        Physics.Raycast(wolrdPosNear, wolrdPosFar - wolrdPosNear, out hit, Mathf.Infinity, _layerMask);
         return hit;
     }
     private void CheckPressMouse()
