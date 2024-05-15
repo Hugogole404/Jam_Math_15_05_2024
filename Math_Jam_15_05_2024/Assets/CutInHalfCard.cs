@@ -6,12 +6,23 @@ using UnityEngine;
 public class CutInHalfCard : MonoBehaviour
 {
     [SerializeField] private GameObject _cardNumbrePrefab;
+    [SerializeField] private float _timeBeforeCanCutAgain = 2;
+
+    private bool _canCut;
+
+    private void Start()
+    {
+        _canCut = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        if(!_canCut) return;
+        
         var card = other.GetComponent<CardNumber>();
         if (card != null && card.CanBeCut)
         {
-            print("detect card for cut");
+            // print("detect card for cut");
             CutCard(other.GetComponent<CardNumber>());
         }
     }
@@ -21,13 +32,14 @@ public class CutInHalfCard : MonoBehaviour
         var card = other.GetComponent<CardNumber>();
         if (card != null)
         {
-            print("detect card for cut");
+            // print("ciao for cut");
             card.CanBeCut = true;
         }
     }
 
     private void CutCard(CardNumber card)
     {
+        // print("go cut");
         int firstHalf = 0;
         int secondHalf = 0;
 
@@ -40,6 +52,8 @@ public class CutInHalfCard : MonoBehaviour
         // print($"first : {firstHalf} -- second {secondHalf}");
         SpawnNewCard(firstHalf, card.gameObject.transform);
         SpawnNewCard(secondHalf, card.gameObject.transform);
+
+        StartCoroutine(TimeCanCanCutAgain());
         
         Destroy(card.gameObject);
     }
@@ -48,5 +62,12 @@ public class CutInHalfCard : MonoBehaviour
     {
         GameObject go = Instantiate(_cardNumbrePrefab, transform.position, transform.rotation);
         go.GetComponent<CardNumber>().Init(value, false);
+    }
+
+    IEnumerator TimeCanCanCutAgain()
+    {
+        _canCut = false;
+        yield return new WaitForSeconds(_timeBeforeCanCutAgain);
+        _canCut = true;
     }
 }

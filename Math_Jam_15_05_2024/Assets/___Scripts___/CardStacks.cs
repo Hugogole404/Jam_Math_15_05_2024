@@ -1,21 +1,25 @@
+using System;
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CardStacks : MonoBehaviour
 {
+    [SerializeField] private GameObject _parent;
+    
     GameObject _topCard;
     GameObject _botCard;
 
     CardMoveManager _cardMoveManager;
     public bool IsPlaced;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (IsPlaced == false)
         {
             if (other.GetComponent<CardMove>() != null)
             {
-                if (gameObject.transform.parent.transform.position.y >= other.gameObject.transform.position.y)
+                if (_parent.transform.position.y >= other.gameObject.transform.position.y)
                 {
                     _topCard = gameObject;
                     _botCard = other.gameObject;
@@ -36,9 +40,16 @@ public class CardStacks : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         IsPlaced = false;
+        
+        // gameObject.transform.position = Vector3.zero;
     }
     private void Awake()
     {
         _cardMoveManager = FindObjectOfType<CardMoveManager>();
+    }
+
+    private void Update()
+    {
+        gameObject.transform.localPosition = Vector3.zero;
     }
 }
