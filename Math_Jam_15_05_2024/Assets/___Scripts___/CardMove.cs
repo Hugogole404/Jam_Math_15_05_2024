@@ -11,6 +11,7 @@ public class CardMove : MonoBehaviour
     Camera _camera;
     CardMoveManager _manager;
 
+    public GameObject CardNeighbor { get; set; }
 
     private void Start()
     {

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class CardOperator : Card
     private void Start()
     {
         Init(Operator);
+        InitAnim();
     }
 
     public void Init(Operators newOpe)

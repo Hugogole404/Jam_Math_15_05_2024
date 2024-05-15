@@ -21,6 +21,6 @@ public class Card : MonoBehaviour
     
     public void InitAnim()
     {
-        //gameObject.transform.DOPunchScale(Vector3.one* .5f, .5f, 8);
+        gameObject.transform.DOPunchScale(Vector3.one* .15f, .5f);
     }
 }

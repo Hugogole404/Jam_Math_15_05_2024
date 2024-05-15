@@ -1,52 +1,54 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class OperationsManager : MonoBehaviour
 {
+    public static OperationsManager Instance;
+
     [SerializeField] private CardOrderManager _cardOrderManager;
     
-    private List<Card> _cards = new List<Card>();
+    // private List<Card> _cards = new List<Card>();
     
     
-    private void OnTriggerEnter(Collider other)
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.gameObject.GetComponent<Card>())
+    //     {
+    //         print("Detect Card");
+    //         Card newCard = other.gameObject.GetComponent<Card>();
+    //         AddCard(newCard);
+    //     }
+    // }
+
+    // public void AddCard(Card newCard)
+    // {
+    //     _cards.Add(newCard);
+    //
+    //     CardOperator ope = newCard.GetComponent<CardOperator>();
+    //     
+    //     if(ope != null && ope.Operator == Operators.Equal)
+    //         GoCalcul();
+    // }
+    //
+    // public void RemoveCard(Card card)
+    // {
+    //     if(_cards.Contains(card))
+    //         _cards.Remove(card);
+    // }
+
+    private void Awake()
     {
-        if (other.gameObject.GetComponent<Card>())
-        {
-            print("Detect Card");
-            Card newCard = other.gameObject.GetComponent<Card>();
-            OnSnap(newCard);
-            AddCard(newCard);
-        }
+        Instance = this;
     }
 
-    public void OnSnap(Card newCard)
-    {
-        
-    }
-
-    public void AddCard(Card newCard)
-    {
-        _cards.Add(newCard);
-
-        CardOperator ope = newCard.GetComponent<CardOperator>();
-        
-        if(ope != null && ope.Operator == Operators.Equal)
-            GoCalcul();
-    }
-
-    public void RemoveCard(Card card)
-    {
-        if(_cards.Contains(card))
-            _cards.Remove(card);
-    }
-
-    private void GoCalcul()
+    public void GoCalcul(List<Card> cards)
     {
         print("go calcul");
-        var SortedCards = _cardOrderManager.SortCard(_cards);
+        var SortedCards = _cardOrderManager.SortCard(cards);
         
         
         
@@ -117,17 +119,7 @@ public class OperationsManager : MonoBehaviour
                             return float.NaN;
                         }
                         break;
-                    // case Operators.DivideEucli:
-                    //     if (i + 1 < cards.Count && cards[i + 1] is CardNumber && ((CardNumber)cards[i + 1]).Value != 0)
-                    //     {
-                    //         result /= ((CardNumber)cards[i + 1]).Value;
-                    //         i++;
-                    //     }
-                    //     else
-                    //     {
-                    //         return float.NaN;
-                    //     }
-                        // break;
+                   
                     case Operators.Equal:
                         // Ne rien faire pour l'opérateur égal, il a déjà été pris en compte dans le calcul précédent
                         break;
