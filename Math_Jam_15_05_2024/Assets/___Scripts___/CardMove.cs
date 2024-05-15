@@ -1,26 +1,19 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
+using TMPro;
 using UnityEngine;
 
 public class CardMove : MonoBehaviour
 {
     Vector3 _mousePos;
     Camera _camera;
-    Manager _manager;
-    private Vector3 GetMousePos()
-    {
-        return  _manager.Camera.WorldToScreenPoint(transform.position);
-    }
-    private void OnMouseDown()
-    {
-        _mousePos = Input.mousePosition - GetMousePos();
-    }
-    private void OnMouseDrag()
-    {
-        transform.position = _manager.Camera.ScreenToWorldPoint(Input.mousePosition - _mousePos);
-    }
+    CardMoveManager _manager;
+
     private void Start()
     {
-        _manager = FindObjectOfType<Manager>();
+        _manager = FindObjectOfType<CardMoveManager>();
+        _camera = _manager.Camera;
     }
 }
