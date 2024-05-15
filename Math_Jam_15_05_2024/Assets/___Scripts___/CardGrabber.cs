@@ -48,7 +48,14 @@ public class CardGrabber : MonoBehaviour
                     // assigner la card 
                     _selectedObject = hit.collider.gameObject.transform.parent.gameObject;
                     _selectedObject.GetComponent<Rigidbody>().freezeRotation = false;
-                    if (_wantCursorVisibility) Cursor.visible = false;
+                    
+                    if (_selectedObject.GetComponent<CardMathChara>())
+                    {
+                        _selectedObject.GetComponent<CardMathChara>().SliderMgr.HideStopSlider();
+                    }
+                    
+                    if (_wantCursorVisibility) 
+                        Cursor.visible = false;
                 }
                 else
                 {
@@ -62,6 +69,8 @@ public class CardGrabber : MonoBehaviour
                     Vector3 worldPosition = _camera.ScreenToWorldPoint(position);
                     _selectedObject.transform.position = new Vector3(worldPosition.x, 0f, worldPosition.z);
 
+                   
+                    
                     _selectedObject = null;
                     if (_wantCursorVisibility) Cursor.visible = true;
                 }

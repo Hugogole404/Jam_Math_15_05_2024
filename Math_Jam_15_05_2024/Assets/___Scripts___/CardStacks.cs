@@ -54,7 +54,7 @@ public class CardStacks : MonoBehaviour
     {
         if (other.GetComponent<CardMove>() != null)
         {
-            if (other.gameObject == _botCard)
+            // if (other.gameObject == _botCard || _topCard == null)
                 _parent.GetComponent<CardMove>().CardNeighbor = null;
         }
     }
@@ -83,10 +83,10 @@ public class CardStacks : MonoBehaviour
             i++;
         }
 
-        foreach (var card in cardsObj)
-        {
-            print(card.name);
-        }
+        // foreach (var card in cardsObj)
+        // {
+        //     print(card.name);
+        // }
 
         // Convert to list of Card
         List<Card> cards = new List<Card>();
@@ -96,7 +96,7 @@ public class CardStacks : MonoBehaviour
         }
 
         cards.Reverse();
-
-        OperationsManager.Instance.GoCalcul(cards);
+            
+        _parent.GetComponent<CardMathChara>().SliderMgr.GoSlider(cards);
     }
 }
