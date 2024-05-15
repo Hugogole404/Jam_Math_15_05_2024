@@ -11,6 +11,7 @@ public class CardNumber : Card
 
     private void Start()
     {
+        InitAnim();
     }
 
     public void Init(int newValue, bool canBeCut)
@@ -20,6 +21,8 @@ public class CardNumber : Card
         if(newValue != 0)
             Value = newValue;
         
-        SetText($"{newValue}");
+        SetText($"{Value}");
     }
+
+    
 }
