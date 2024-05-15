@@ -6,6 +6,10 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     [SerializeField] private TMP_Text _textDisplay;
-    
-    public string Text { get; set; }
+
+
+    public void SetText(string text)
+    {
+        _textDisplay.text = text;
+    }
 }
