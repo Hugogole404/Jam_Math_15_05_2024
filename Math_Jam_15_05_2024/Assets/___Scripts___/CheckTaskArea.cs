@@ -8,6 +8,7 @@ public class CheckTaskArea : MonoBehaviour
     TaskManager _taskManager;
     [HideInInspector] public int NumberEnter;
     public GameObject ActualCard;
+
     private void OnTriggerStay(Collider other)
     {
         if(_grabber.IsCardSelected == false && other.GetComponent<CardNumber>() != null)

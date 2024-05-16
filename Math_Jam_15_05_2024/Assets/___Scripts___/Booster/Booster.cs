@@ -43,7 +43,7 @@ public class Booster : MonoBehaviour
         _startScale = _boosterPack.localScale;
         _startRotation = _boosterPack.localRotation;
         
-        AudioManager.Instance.PlaySound("Cliquer_sur_booster_pour_sortir_les_cartes");
+        //AudioManager.Instance.PlaySound("Cliquer_sur_booster_pour_sortir_les_cartes");
     }
 
     public void Init(BoosterScriptable boosterInfo, Vector3 jumpPos)
@@ -80,7 +80,7 @@ public class Booster : MonoBehaviour
     {
         if (_isOpen) return;
         
-        AudioManager.Instance.PlaySound("Cliquer_sur_booster_pour_sortir_les_cartes");
+        //AudioManager.Instance.PlaySound("Cliquer_sur_booster_pour_sortir_les_cartes");
 
         // Animation de rebondissement (bounce)
         Sequence bounceSequence = DOTween.Sequence();

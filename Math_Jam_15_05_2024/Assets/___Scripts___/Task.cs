@@ -15,4 +15,6 @@ public class Task : MonoBehaviour
     public int Value;
     public int Reward;
     public bool IsValidate;
+    
+    public bool IsGreen, IsBlue, IsViolet, IsPink, IsRed, IsOrange, IsYellow; 
 }

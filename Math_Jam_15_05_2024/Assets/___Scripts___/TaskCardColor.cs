@@ -5,17 +5,17 @@ using UnityEngine;
 public class TaskCardColor : MonoBehaviour
 {
     [Header("Vert")]
-    public int ColorIntervalMax;
+    public int ColorGreenMaxVal;
     [Header("Bleu")]
-    public int ColorIntervalMax1;
+    public int ColorBlueMaxVal;
     [Header("Violet")]
-    public int ColorIntervalMax2;
+    public int ColorVioletMaxVal;
     [Header("Rose")]
-    public int ColorIntervalMax3;
+    public int ColorPinkMaxVal;
     [Header("Rouge")]
-    public int ColorIntervalMax4;
+    public int ColorRedMaxVal;
     [Header("Orange")]
-    public int ColorIntervalMax5;
+    public int ColorOrangeMaxVal;
     [Header("Jaune")]
-    public int ColorIntervalMax6;
+    public int ColorYellowMaxVal;
 }
