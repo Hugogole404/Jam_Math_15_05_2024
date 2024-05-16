@@ -3,14 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class Booster : MonoBehaviour
 {
     [Header("--- Setup ---")] [SerializeField]
     private Transform _boosterPack; // Référence au transform du booster pack
-
-    [SerializeField] private Material _boosterMaterial; // Matériau du booster pack
     [SerializeField] private int _touchNeededToOpen;
+
+    [SerializeField] private GameObject _cardNumberPrefab; // Matériau du booster pack
+    [SerializeField] private GameObject _cardOpePrefab; // Matériau du booster pack
+    [SerializeField] private GameObject _cardMathematicianPrefab; // Matériau du booster pack
 
     [Header("--- Timings Hit ---")] [SerializeField]
     private float _bounceHeight = 0.5f; // Hauteur du rebond
@@ -27,6 +31,7 @@ public class Booster : MonoBehaviour
     private Vector3 _startScale; // Taille initiale du booster pack
     private Quaternion _startRotation; // Rotation initiale du booster pack
     private bool _isOpen;
+    private BoosterScriptable _boosterInfos;
 
     void Start()
     {
@@ -36,7 +41,13 @@ public class Booster : MonoBehaviour
         // OnJumpAnim();
     }
 
-    public void OnJumpAnim(Vector3 jumpPos)
+    public void Init(BoosterScriptable boosterInfo, Vector3 jumpPos)
+    {
+        _boosterInfos = boosterInfo;
+        OnJumpAnim(jumpPos);
+    }
+
+    private void OnJumpAnim(Vector3 jumpPos)
     {
         var pos = gameObject.transform.position;
         gameObject.transform.DOJump(new Vector3(pos.x + jumpPos.x, pos.y + jumpPos.y, pos.z + jumpPos.z), 2, 1, 1f).SetEase(Ease.Linear);
@@ -121,12 +132,59 @@ public class Booster : MonoBehaviour
         _boosterPack.DOKill();
         _boosterPack.DOScale(0, 0.5f).SetEase(Ease.InBounce).OnComplete(GoKillAndSpawnCard);
 
+        // Spawn card ...
+        SpawnNumbers(_boosterInfos.EvenNumbers, _boosterInfos.EvenNumbersCount);
+        SpawnNumbers(_boosterInfos.OddNumbers, _boosterInfos.OddNumbersCount);
+        SpawnOperators();
+        SpawnMathematicians();
+        print("spawn");
+        
         _isOpen = true;
     }
 
     private void GoKillAndSpawnCard()
     {
-        // Spawn card ...
+        
+        
         Destroy(_boosterPack.gameObject);
     }
+    
+    void SpawnNumbers(List<int> numberList, int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            int randomIndex = Random.Range(0, numberList.Count);
+            int randomNumber = numberList[randomIndex];
+            
+            GameObject go = Instantiate(_cardNumberPrefab, transform.position, _cardNumberPrefab.transform.rotation);
+            go.GetComponent<CardNumber>().Init(randomNumber, true);
+        }
+    }
+
+    void SpawnOperators()
+    {
+        // Spawner des opérateurs
+        for (int i = 0; i < _boosterInfos.OperatorsCount; i++)
+        {
+            int randomIndex = Random.Range(0, _boosterInfos.Operators.Count);
+            Operators randomOperator = _boosterInfos.Operators[randomIndex];
+            // Debug.Log("Spawned operator: " + randomOperator);
+            
+            GameObject go = Instantiate(_cardOpePrefab, transform.position, _cardOpePrefab.transform.rotation);
+            go.GetComponent<CardOperator>().Init(randomOperator);
+        }
+    }
+
+    void SpawnMathematicians()
+    {
+        // Spawner des mathématiciens
+        for (int i = 0; i < _boosterInfos.MathematiciansCount; i++)
+        {
+            // Spawn d'un mathématicien
+            GameObject go = Instantiate(_cardMathematicianPrefab, transform.position, _cardMathematicianPrefab.transform.rotation);
+            // go.GetComponent<CardMathChara>().Init(randomNumber, true);
+            // Debug.Log("Spawned mathematician");
+        }
+    }
+
 }

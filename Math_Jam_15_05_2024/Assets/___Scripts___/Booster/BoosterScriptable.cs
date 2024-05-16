@@ -9,17 +9,17 @@ public class BoosterScriptable : ScriptableObject
     public int Cost = 0;
     
     [Header("-- Pair --")]
-    public int EvenNumbersCount = 0; // Nombre de nombres pairs
-    public List<int> EvenNumbers = new List<int>(); // Liste de nombres pairs
+    public int EvenNumbersCount = 0; 
+    public List<int> EvenNumbers = new List<int>();
     
     [Header("-- Impair --")]
-    public int OddNumbersCount = 0; // Nombre de nombres impairs
-    public List<int> OddNumbers = new List<int>(); // Liste de nombres impairs
+    public int OddNumbersCount = 0; 
+    public List<int> OddNumbers = new List<int>(); 
 
     [Header("-- Operators --")]
     public int OperatorsCount = 0;
-    public List<Operators> Operators = new List<Operators>(); // Liste des opérateurs
+    public List<Operators> Operators = new List<Operators>(); 
 
     [Header("-- Math --")]
-    public int MathematiciansCount = 0; // Nombre de mathématiciens
+    public int MathematiciansCount = 0;
 }

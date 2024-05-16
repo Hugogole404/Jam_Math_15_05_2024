@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Pair
   m_EditorClassIdentifier: 
   Cost: 10
-  EvenNumbersCount: 7
+  EvenNumbersCount: 3
   EvenNumbers: 020000000400000006000000080000000a0000000c00000018000000
-  OddNumbersCount: 1
+  OddNumbersCount: 0
   OddNumbers: 01000000030000000500000007000000090000000d00000015000000
-  OperatorsCount: 2
+  OperatorsCount: 0
   Operators: 000000000100000002000000
   MathematiciansCount: 0

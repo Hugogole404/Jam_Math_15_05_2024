@@ -81,7 +81,6 @@ GameObject:
   - component: {fileID: 1503429082417093592}
   - component: {fileID: 1347132496764684481}
   - component: {fileID: 4900778825954112352}
-  - component: {fileID: 5257448904242252812}
   - component: {fileID: 3823852394003934885}
   m_Layer: 6
   m_Name: Booster
@@ -216,23 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2fbd6a2cacf1f846bcdc0eb9da874d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5257448904242252812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8455925482124395704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee806151a29b974380843613c75e4e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _wantCursorVisibility: 1
-  _heightToHoldCard: 11
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!114 &3823852394003934885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,8 +228,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boosterPack: {fileID: 3954637954471363283}
-  _boosterMaterial: {fileID: 2100000, guid: c5214e04fd787ba4499719137af2bf44, type: 2}
   _touchNeededToOpen: 5
+  _cardNumberPrefab: {fileID: 5478401617880553983, guid: 6cc3a75f4a214c44b92445b4a63ccbaf,
+    type: 3}
+  _cardOpePrefab: {fileID: 6096215950719163203, guid: 3849ecc93ea08084dbabf498d53a512d,
+    type: 3}
+  _cardMathematicianPrefab: {fileID: 411775254142804045, guid: 62b9c0ad0427f334588144ff29d5383f,
+    type: 3}
   _bounceHeight: 0.1
   _bounceDuration: 0.5
   _rotationAngle: 15
