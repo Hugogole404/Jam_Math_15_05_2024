@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckTaskArea : MonoBehaviour
 {
     [SerializeField] public int _wantedValue;
+    [SerializeField] public int _wantedColor;
     CardGrabber _grabber;
     private void OnTriggerEnter(Collider other)
     {
