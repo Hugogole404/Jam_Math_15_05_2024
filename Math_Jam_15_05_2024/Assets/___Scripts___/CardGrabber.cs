@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class CardGrabber : MonoBehaviour
 {
+    public bool IsCardSelected;
     [SerializeField] bool _wantCursorVisibility;
     [SerializeField] float _heightToHoldCard;
     [SerializeField] LayerMask _layerMask;
@@ -15,6 +17,7 @@ public class CardGrabber : MonoBehaviour
     Camera _camera;
     GameObject _selectedObject;
     float _speedSelectedObject;
+    Vector3 _lastPos;
 
     private RaycastHit CastRay()
     {
@@ -35,6 +38,7 @@ public class CardGrabber : MonoBehaviour
         {
             if (_selectedObject == null)
             {
+                IsCardSelected = true;
                 RaycastHit hit = CastRay();
 
                 if (hit.collider != null)
@@ -48,13 +52,13 @@ public class CardGrabber : MonoBehaviour
                     // assigner la card 
                     _selectedObject = hit.collider.gameObject.transform.parent.gameObject;
                     _selectedObject.GetComponent<Rigidbody>().freezeRotation = false;
-                    
+
                     if (_selectedObject.GetComponent<CardMathChara>())
                     {
                         _selectedObject.GetComponent<CardMathChara>().SliderMgr.HideStopSlider();
                     }
-                    
-                    if (_wantCursorVisibility) 
+
+                    if (_wantCursorVisibility)
                         Cursor.visible = false;
                 }
                 else
@@ -69,11 +73,12 @@ public class CardGrabber : MonoBehaviour
                     Vector3 worldPosition = _camera.ScreenToWorldPoint(position);
                     _selectedObject.transform.position = new Vector3(worldPosition.x, 0f, worldPosition.z);
 
-                   
-                    
+
+
                     _selectedObject = null;
                     if (_wantCursorVisibility) Cursor.visible = true;
                 }
+                _lastPos = _selectedObject.transform.position;
             }
         }
         // relacher la card 
@@ -86,6 +91,8 @@ public class CardGrabber : MonoBehaviour
             _selectedObject.GetComponent<Rigidbody>().freezeRotation = true;
             _selectedObject = null;
             if (_wantCursorVisibility) Cursor.visible = true;
+            _lastPos = new Vector3(0, 0, 0);
+            IsCardSelected = false;
         }
 
         // verif si la card n'est pas nulle 
@@ -99,16 +106,52 @@ public class CardGrabber : MonoBehaviour
     }
     private void VelocitySelectedObject()
     {
-        if(_selectedObject != null)
+        if (_selectedObject != null)
         {
             _speedSelectedObject = _selectedObject.GetComponent<Rigidbody>().velocity.magnitude;
         }
     }
+
+    private Vector3 Clampp(Vector3 vector, Vector3 min, Vector3 max)
+    {
+        float x = Mathf.Clamp(vector.x, min.x, max.x);
+        float y = Mathf.Clamp(vector.y, min.y, max.y);
+        float z = Mathf.Clamp(vector.z, min.z, max.z);
+
+        return new Vector3(x, -180, z);
+    }
+
+    Vector3 rota;
     private void RotateCard()
     {
-        if(_selectedObject != null)
+        if (_selectedObject != null)
         {
-    
+            var speed = _manager.Speed * Time.deltaTime;
+
+            // gauche droite 
+            if (_selectedObject.transform.position.x > _lastPos.x)
+            {
+                rota += new Vector3(0, 0, speed);
+            }
+            if (_selectedObject.transform.position.x < _lastPos.x)
+            {
+                rota -= new Vector3(0, 0, speed);
+            }
+
+            // haut bas 
+            if (_selectedObject.transform.position.z > _lastPos.z)
+            {
+                rota -= new Vector3(speed, 0, 0);
+            }
+            if (_selectedObject.transform.position.z < _lastPos.z)
+            {
+                rota += new Vector3(speed, 0, 0);
+            }
+
+            rota = Clampp(rota, new Vector3(-_manager.TurnMaxAngles, 0,-_manager.TurnMaxAngles), new Vector3(_manager.TurnMaxAngles, 0, _manager.TurnMaxAngles));
+
+            _selectedObject.transform.localEulerAngles = rota;
+
         }
     }
 
@@ -121,7 +164,7 @@ public class CardGrabber : MonoBehaviour
     private void Update()
     {
         CheckPressMouse();
-        //VelocitySelectedObject();
-        //RotateCard();
+        VelocitySelectedObject();
+        RotateCard();
     }
 }

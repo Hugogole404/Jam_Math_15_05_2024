@@ -6,4 +6,6 @@ public class CardMoveManager : MonoBehaviour
 {
     public Camera Camera;
     public float OffsetStackCards;
+    public float TurnMaxAngles;
+    public float Speed;
 }
