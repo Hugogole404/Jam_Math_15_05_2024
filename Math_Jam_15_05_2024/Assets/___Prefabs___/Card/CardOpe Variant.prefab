@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2852546145542714563, guid: 8b846dd8061bfe54da448d1a1291a6e9,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.28282344
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 2852546145542714563, guid: 8b846dd8061bfe54da448d1a1291a6e9,
         type: 3}
@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 3849128706430450477, guid: 8b846dd8061bfe54da448d1a1291a6e9,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.12366742
+      value: 0.6508518
       objectReference: {fileID: 0}
     - target: {fileID: 3849128706430450477, guid: 8b846dd8061bfe54da448d1a1291a6e9,
         type: 3}
@@ -37,6 +37,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: -0.13501722
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318497426546560267, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318497426546560267, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6318497426546560267, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
         type: 3}
@@ -119,6 +134,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!23 &2360141957317168472 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 641065673095721502, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2892838518570336070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4535133124651006413 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1645338621204334219, guid: 8b846dd8061bfe54da448d1a1291a6e9,
@@ -154,3 +175,8 @@ MonoBehaviour:
   _fx_DropCardOnGround: {fileID: 7129660582519929512, guid: 75dec0f3006e27a418c1618b8c7f07a0,
     type: 3}
   <Operator>k__BackingField: 0
+  _renderer: {fileID: 2360141957317168472}
+  _spritesOperator:
+  - {fileID: 21300000, guid: 916113f89928bde4c8818baca05deb13, type: 3}
+  - {fileID: 21300000, guid: 307855b907f32fb4ea1565063ec12e66, type: 3}
+  - {fileID: 21300000, guid: 17037b6e55da02e4286d6d07cd9fe7b0, type: 3}

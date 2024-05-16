@@ -11,7 +11,8 @@ public class TempManager : MonoBehaviour
     {
         foreach (var card in _cards)
         {
-            card.Init(0, true);
+            if(card != null)
+                card.Init(0, true);
         }
     }
 }
