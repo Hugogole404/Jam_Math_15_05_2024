@@ -23,9 +23,9 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        PlaySound("MainMusic");
         //Scene currentScene = SceneManager.GetActiveScene();
         //if (currentScene.name == "MainMenu")
-        //    PlaySound("MusicMain");
         //else
         //    PlaySound("MusicGame");
     }

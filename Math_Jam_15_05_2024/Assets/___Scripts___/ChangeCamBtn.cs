@@ -10,5 +10,6 @@ public class ChangeCamBtn : MonoBehaviour
     private void OnMouseDown()
     {
         CameraMovement.Instance.ChangeDir(_direction);
+        AudioManager.Instance.PlaySound("Transitions_Menus");
     }
 }

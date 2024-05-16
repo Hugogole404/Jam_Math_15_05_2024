@@ -60,6 +60,8 @@ public class CutInHalfCard : MonoBehaviour
 
         StartCoroutine(TimeCanCanCutAgain());
 
+        AudioManager.Instance.PlaySound("Decouper_une_carte");
+
         Destroy(card.gameObject);
     }
 

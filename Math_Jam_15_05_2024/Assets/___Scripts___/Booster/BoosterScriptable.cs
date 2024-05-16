@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewBoosterScriptable", menuName = "Custom/BoosterScriptable")]
 public class BoosterScriptable : ScriptableObject
 {
+    [Header("-- Sprite --")] 
+    public Sprite SpriteBooster;
+    
     [Header("-- Cost --")]
     public int Cost = 0;
     

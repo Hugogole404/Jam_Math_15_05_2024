@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a53d05bc8ba0f4cbc74b2b5b50255f, type: 3}
   m_Name: Mathematicien
   m_EditorClassIdentifier: 
+  SpriteBooster: {fileID: 21300000, guid: e707c0a93af70364aa1efecd35f0674a, type: 3}
   Cost: 50
   EvenNumbersCount: 0
   EvenNumbers: 020000000400000006000000080000000a0000000c00000018000000

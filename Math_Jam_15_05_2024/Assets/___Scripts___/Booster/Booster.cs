@@ -11,6 +11,7 @@ public class Booster : MonoBehaviour
     [Header("--- Setup ---")] [SerializeField]
     private Transform _boosterPack; // Référence au transform du booster pack
     [SerializeField] private int _touchNeededToOpen;
+    [SerializeField] private Renderer _renderer;
 
     [SerializeField] private GameObject _cardNumberPrefab; // Matériau du booster pack
     [SerializeField] private GameObject _cardOpePrefab; // Matériau du booster pack
@@ -27,7 +28,10 @@ public class Booster : MonoBehaviour
     [SerializeField] private float _scaleDuration = 0.1f; // Durée du changement d'échelle
     [SerializeField] private Color _hitColor; // Couleur de l'effet de "hit"
     [SerializeField] private float _hitDuration = 0.1f; // Durée de l'effet de "hit"
-
+    
+    [Header("--- Spawn Radius ---")]
+    [SerializeField] private float _radius = 2; // Rayon du cercle
+    
     private Vector3 _startScale; // Taille initiale du booster pack
     private Quaternion _startRotation; // Rotation initiale du booster pack
     private bool _isOpen;
@@ -38,13 +42,17 @@ public class Booster : MonoBehaviour
         // Sauvegarder la taille initiale et la rotation initiale du booster pack
         _startScale = _boosterPack.localScale;
         _startRotation = _boosterPack.localRotation;
-        // OnJumpAnim();
+        
+        AudioManager.Instance.PlaySound("Cliquer_sur_booster_pour_sortir_les_cartes");
     }
 
     public void Init(BoosterScriptable boosterInfo, Vector3 jumpPos)
     {
         _boosterInfos = boosterInfo;
         OnJumpAnim(jumpPos);
+        
+        Material material = _renderer.material;
+        material.mainTexture = _boosterInfos.SpriteBooster.texture;
     }
 
     private void OnJumpAnim(Vector3 jumpPos)
@@ -71,6 +79,9 @@ public class Booster : MonoBehaviour
     void OpenBoosterPack()
     {
         if (_isOpen) return;
+        
+        AudioManager.Instance.PlaySound("Cliquer_sur_booster_pour_sortir_les_cartes");
+
         // Animation de rebondissement (bounce)
         Sequence bounceSequence = DOTween.Sequence();
         bounceSequence.Append(_boosterPack.DOMoveY(_boosterPack.position.y + _bounceHeight, _bounceDuration / 2f)
@@ -137,7 +148,7 @@ public class Booster : MonoBehaviour
         SpawnNumbers(_boosterInfos.OddNumbers, _boosterInfos.OddNumbersCount);
         SpawnOperators();
         SpawnMathematicians();
-        print("spawn");
+
         
         _isOpen = true;
     }
@@ -184,9 +195,7 @@ public class Booster : MonoBehaviour
             SpawnObjects(_cardMathematicianPrefab);
         }
     }
-    
-    [Header("--- Spawn Radius ---")]
-    [SerializeField] private float _radius = 2; // Rayon du cercle
+ 
 
     GameObject SpawnObjects(GameObject prefab)
     {

@@ -117,6 +117,8 @@ public class OperationsManager : MonoBehaviour
 
     public void SpawnNewCard(GameObject parent)
     {
+        AudioManager.Instance.PlaySound("Calcul_termine");
+
         GameObject go = Instantiate(_cardNumbPrefab, parent.transform.position, parent.transform.rotation);
         go.GetComponent<CardNumber>().Init(Result, true);
         go.transform.DOMoveY(go.transform.position.y + 5, 0);

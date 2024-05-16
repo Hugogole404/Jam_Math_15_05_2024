@@ -52,6 +52,9 @@ public class CardGrabber : MonoBehaviour
                     // assigner la card 
                     _selectedObject = hit.collider.gameObject.transform.parent.gameObject;
                     _selectedObject.GetComponent<Rigidbody>().freezeRotation = false;
+                    
+                    AudioManager.Instance.PlaySound("Attraper_une_carte");
+
 
                     if (_selectedObject.GetComponent<CardMathChara>())
                     {
