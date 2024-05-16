@@ -9,6 +9,7 @@ using UnityEngine;
 
 public class CardGrabber : MonoBehaviour
 {
+    public bool IsCardSelected;
     [SerializeField] bool _wantCursorVisibility;
     [SerializeField] float _heightToHoldCard;
     [SerializeField] LayerMask _layerMask;
@@ -37,6 +38,7 @@ public class CardGrabber : MonoBehaviour
         {
             if (_selectedObject == null)
             {
+                IsCardSelected = true;
                 RaycastHit hit = CastRay();
 
                 if (hit.collider != null)
@@ -90,6 +92,7 @@ public class CardGrabber : MonoBehaviour
             _selectedObject = null;
             if (_wantCursorVisibility) Cursor.visible = true;
             _lastPos = new Vector3(0, 0, 0);
+            IsCardSelected = false;
         }
 
         // verif si la card n'est pas nulle 
