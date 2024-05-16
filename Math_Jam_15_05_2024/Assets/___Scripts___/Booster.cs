@@ -10,7 +10,7 @@ public class Booster : MonoBehaviour
     [SerializeField] private Transform _boosterPack; // Référence au transform du booster pack
     [SerializeField] private Material _boosterMaterial; // Matériau du booster pack
     [SerializeField] private int _touchNeededToOpen;
-    [Header("--- Timings ---")]
+    [Header("--- Timings Hit ---")]
     [SerializeField] private float _bounceHeight = 0.5f; // Hauteur du rebond
     [SerializeField] private float _bounceDuration = 0.5f; // Durée du rebond
     [SerializeField] private float _rotationAngle = 15f; // Angle de rotation
@@ -30,6 +30,13 @@ public class Booster : MonoBehaviour
         // Sauvegarder la taille initiale et la rotation initiale du booster pack
         _startScale = _boosterPack.localScale;
         _startRotation = _boosterPack.localRotation;
+        OnJumpAnim();
+    }
+
+    private void OnJumpAnim()
+    {
+        var pos = gameObject.transform.position;
+        gameObject.transform.DOJump(new Vector3(pos.x, pos.y, pos.z + 5), 2, 1, .5f);
     }
 
     private void OnMouseDown()
