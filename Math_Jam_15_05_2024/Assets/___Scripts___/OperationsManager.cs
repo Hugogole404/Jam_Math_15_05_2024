@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -10,42 +11,18 @@ public class OperationsManager : MonoBehaviour
     public static OperationsManager Instance;
 
     [SerializeField] private CardOrderManager _cardOrderManager;
-    
-    // private List<Card> _cards = new List<Card>();
-    
-    
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.gameObject.GetComponent<Card>())
-    //     {
-    //         print("Detect Card");
-    //         Card newCard = other.gameObject.GetComponent<Card>();
-    //         AddCard(newCard);
-    //     }
-    // }
+    [SerializeField] private GameObject _cardNumbPrefab;
+    public int Result { get; set; }
 
-    // public void AddCard(Card newCard)
-    // {
-    //     _cards.Add(newCard);
-    //
-    //     CardOperator ope = newCard.GetComponent<CardOperator>();
-    //     
-    //     if(ope != null && ope.Operator == Operators.Equal)
-    //         GoCalcul();
-    // }
-    //
-    // public void RemoveCard(Card card)
-    // {
-    //     if(_cards.Contains(card))
-    //         _cards.Remove(card);
-    // }
+    private List<Card> _savedCards = new List<Card>();
+    private bool _canCalculate;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void GoCalcul(List<Card> cards)
+    public bool CanCalcul(List<Card> cards)
     {
         print("go calcul");
         var SortedCards = _cardOrderManager.SortCard(cards);
@@ -53,15 +30,19 @@ public class OperationsManager : MonoBehaviour
         
         
         float result = Calculate(SortedCards);
+        Result = (int)result;
         
         // Afficher le résultat ou un message d'erreur si le calcul est impossible
         if (float.IsNaN(result))
         {
             Debug.Log("Impossible de calculer le résultat.");
+            return false;
         }
         else
         {
             Debug.Log("Le résultat du calcul est : " + result);
+            _savedCards = cards;
+            return true;
         }
     }
 
@@ -132,5 +113,30 @@ public class OperationsManager : MonoBehaviour
         }
     
         return result;
+    }
+
+    public void SpawnNewCard(GameObject parent)
+    {
+        GameObject go = Instantiate(_cardNumbPrefab, parent.transform.position, parent.transform.rotation);
+        go.GetComponent<CardNumber>().Init(Result, true);
+        go.transform.DOMoveY(go.transform.position.y + 5, 0);
+        go.transform.DOMoveX(go.transform.position.x - 1.5f, 0);
+
+        foreach (var card in _savedCards)
+        {
+            if(card.gameObject != parent)
+                card.DeathAnim();
+        }
+
+        StartCoroutine(WaitTilCalculateAgain());
+    }
+
+    IEnumerator WaitTilCalculateAgain()
+    {
+        _canCalculate = false;
+        
+        yield return new WaitForSeconds(3);
+
+        _canCalculate = true;
     }
 }

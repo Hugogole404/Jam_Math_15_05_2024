@@ -43,7 +43,7 @@ public class CardStacks : MonoBehaviour
             _topCard.transform.DOMoveZ(_botCard.transform.position.z - _cardMoveManager.OffsetStackCards, 0.5f);
 
 
-            if (_parent.GetComponent<CardMathChara>())
+            if (_parent.GetComponent<CardMathChara>() && _topCard == gameObject)
             {
                 GetAllParent();
             }
@@ -67,7 +67,7 @@ public class CardStacks : MonoBehaviour
 
         int i = 0;
 
-        while (cardToAdd != null || i == 15)
+        while (cardToAdd != null || i == 25)
         {
             cardsObj.Add(cardToAdd);
 
@@ -97,6 +97,6 @@ public class CardStacks : MonoBehaviour
 
         cards.Reverse();
             
-        _parent.GetComponent<CardMathChara>().SliderMgr.GoSlider(cards);
+        _parent.GetComponent<CardMathChara>().SliderMgr.GoSlider(cards, gameObject);
     }
 }

@@ -11,16 +11,25 @@ public class Card : MonoBehaviour
 
     public string TextValue { get; set; }
 
-  
 
     public void SetText(string text)
     {
         TextValue = text;
         _textDisplay.text = text;
     }
-    
+
     public void InitAnim()
     {
-        gameObject.transform.DOPunchScale(Vector3.one* .15f, .5f);
+        gameObject.transform.DOPunchScale(Vector3.one * .15f, .5f);
+    }
+
+    public void DeathAnim()
+    {
+        Destroy(gameObject);
+
+        // gameObject.transform.DOScale(0, .5f).SetEase(Ease.InBounce).OnComplete(() =>
+        // {
+        //     Destroy(gameObject);
+        // });;
     }
 }
