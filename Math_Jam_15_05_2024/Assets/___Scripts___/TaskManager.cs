@@ -8,7 +8,7 @@ using UnityEngine;
 public class TaskManager : MonoBehaviour
 {
     CheckTaskArea _taskArea;
-    [SerializeField] private List<Task> _listTasksUncompleted;
+    [SerializeField] public List<Task> _listTasksUncompleted;
     [SerializeField] private List<Task> _listTasksCompleted;
     private TaskCardColor _cardColor;
     private MoneyManager _moneyManager;
