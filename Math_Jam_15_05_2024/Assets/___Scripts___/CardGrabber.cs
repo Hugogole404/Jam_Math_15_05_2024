@@ -87,7 +87,7 @@ public class CardGrabber : MonoBehaviour
             if (_selectedObject == null) return;
 
             _selectedObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            _selectedObject.transform.DORotate(new Vector3(0, 180, 0), 0);
+            _selectedObject.transform.DORotate(new Vector3(0, 0, 0), 0);
             _selectedObject.GetComponent<Rigidbody>().freezeRotation = true;
             _selectedObject = null;
             if (_wantCursorVisibility) Cursor.visible = true;
@@ -118,7 +118,7 @@ public class CardGrabber : MonoBehaviour
         float y = Mathf.Clamp(vector.y, min.y, max.y);
         float z = Mathf.Clamp(vector.z, min.z, max.z);
 
-        return new Vector3(x, -180, z);
+        return new Vector3(x, 0, z);
     }
 
     Vector3 rota;

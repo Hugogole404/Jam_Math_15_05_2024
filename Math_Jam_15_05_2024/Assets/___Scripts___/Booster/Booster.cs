@@ -144,8 +144,6 @@ public class Booster : MonoBehaviour
 
     private void GoKillAndSpawnCard()
     {
-        
-        
         Destroy(_boosterPack.gameObject);
     }
     
