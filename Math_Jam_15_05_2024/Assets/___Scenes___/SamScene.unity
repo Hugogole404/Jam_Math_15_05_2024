@@ -450,8 +450,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.143601, y: 2.9765663, z: 2.659795}
-  m_Center: {x: -0.18880391, y: -1.0733929, z: 0.1583761}
+  m_Size: {x: 2.143601, y: 2.3465443, z: 2.659795}
+  m_Center: {x: -0.18880391, y: -1.3884039, z: 0.1583761}
 --- !u!4 &529697929
 Transform:
   m_ObjectHideFlags: 0
@@ -1827,6 +1827,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 315690346682881484, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 315690346682881484, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
     - target: {fileID: 476964117121363773, guid: 4501b6610fd93054ba7cc61eee2ea870,
         type: 3}
       propertyPath: m_fontSize
@@ -1856,6 +1866,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671801410910993152, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0607
       objectReference: {fileID: 0}
     - target: {fileID: 1989566536967028511, guid: 4501b6610fd93054ba7cc61eee2ea870,
         type: 3}
@@ -2046,6 +2061,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676508293548543516, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.11464
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676508293548543516, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02364
       objectReference: {fileID: 0}
     - target: {fileID: 5797648380297245821, guid: 4501b6610fd93054ba7cc61eee2ea870,
         type: 3}

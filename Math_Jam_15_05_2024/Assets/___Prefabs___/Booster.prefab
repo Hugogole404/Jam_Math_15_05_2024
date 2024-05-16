@@ -244,3 +244,4 @@ MonoBehaviour:
   _scaleDuration: 0.1
   _hitColor: {r: 1, g: 1, b: 1, a: 1}
   _hitDuration: 0.1
+  _radius: 2.5

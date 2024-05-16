@@ -154,7 +154,8 @@ public class Booster : MonoBehaviour
             int randomIndex = Random.Range(0, numberList.Count);
             int randomNumber = numberList[randomIndex];
             
-            GameObject go = Instantiate(_cardNumberPrefab, transform.position, _cardNumberPrefab.transform.rotation);
+            // GameObject go = Instantiate(_cardNumberPrefab, transform.position, _cardNumberPrefab.transform.rotation);
+            GameObject go = SpawnObjects(_cardNumberPrefab);
             go.GetComponent<CardNumber>().Init(randomNumber, true);
         }
     }
@@ -166,9 +167,9 @@ public class Booster : MonoBehaviour
         {
             int randomIndex = Random.Range(0, _boosterInfos.Operators.Count);
             Operators randomOperator = _boosterInfos.Operators[randomIndex];
-            // Debug.Log("Spawned operator: " + randomOperator);
             
-            GameObject go = Instantiate(_cardOpePrefab, transform.position, _cardOpePrefab.transform.rotation);
+            // GameObject go = Instantiate(_cardOpePrefab, transform.position, _cardOpePrefab.transform.rotation);
+            GameObject go = SpawnObjects(_cardOpePrefab);
             go.GetComponent<CardOperator>().Init(randomOperator);
         }
     }
@@ -179,10 +180,32 @@ public class Booster : MonoBehaviour
         for (int i = 0; i < _boosterInfos.MathematiciansCount; i++)
         {
             // Spawn d'un mathématicien
-            GameObject go = Instantiate(_cardMathematicianPrefab, transform.position, _cardMathematicianPrefab.transform.rotation);
-            // go.GetComponent<CardMathChara>().Init(randomNumber, true);
-            // Debug.Log("Spawned mathematician");
+            // GameObject go = Instantiate(_cardMathematicianPrefab, transform.position, _cardMathematicianPrefab.transform.rotation);
+            SpawnObjects(_cardMathematicianPrefab);
         }
+    }
+    
+    [Header("--- Spawn Radius ---")]
+    [SerializeField] private float _radius = 2; // Rayon du cercle
+
+    GameObject SpawnObjects(GameObject prefab)
+    {
+        // Calcul de l'angle en radians
+        float angleOffset = Random.Range(0, 360);
+        float height = Random.Range(0, 2);
+        
+        float angle = angleOffset * Mathf.Deg2Rad;
+
+        // Calcul des coordonnées X et Y en utilisant les fonctions trigonométriques
+        float x = Mathf.Cos(angle) * _radius;
+        float y = Mathf.Sin(angle) * _radius;
+
+        // Position de spawn relative à l'objet Spawner
+        Vector3 spawnPosition = transform.position + new Vector3(x, height, y);
+
+        // Spawner l'objet
+        GameObject go = Instantiate(prefab, spawnPosition, Quaternion.identity);
+        return go;
     }
 
 }
