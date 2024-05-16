@@ -676,8 +676,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.957423, y: 0.62371397, z: 2.0001402}
-  m_Center: {x: -0.0015570143, y: -0.18814293, z: -0.0041810493}
+  m_Size: {x: 3.957423, y: 0.61642224, z: 2.0001402}
+  m_Center: {x: -0.0015570143, y: -0.19178876, z: -0.004180999}
 --- !u!1 &1016629352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,6 +1490,65 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98fb6738f3c3bec468602b7ca8380085, type: 3}
+--- !u!4 &1862800713 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8249069900514156008, guid: 4501b6610fd93054ba7cc61eee2ea870,
+    type: 3}
+  m_PrefabInstance: {fileID: 22980259445734287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1896515326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896515327}
+  - component: {fileID: 1896515328}
+  m_Layer: 0
+  m_Name: Box pour pas sortir de la map
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1896515327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896515326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.08, y: 27.433, z: 16.669}
+  m_LocalScale: {x: 0.3881119, y: 0.4729824, z: 0.4729824}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1862800713}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1896515328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896515326}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.957423, y: 3.7086983, z: 1.981352}
+  m_Center: {x: -0.0015570143, y: -1.7379267, z: 0.0052127396}
 --- !u!1 &1935006333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,7 +1609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dabf54d81ef52e41ad7253d6348c927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CurrentMoney>k__BackingField: 45
+  <CurrentMoney>k__BackingField: 75
   _moneyText: {fileID: 1981998080}
 --- !u!114 &1981998080 stripped
 MonoBehaviour:
@@ -1768,6 +1827,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 476964117121363773, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 871350912091982434, guid: 4501b6610fd93054ba7cc61eee2ea870,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1918,6 +1982,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.002
       objectReference: {fileID: 0}
+    - target: {fileID: 5022268713901045223, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 5311990124326416392, guid: 4501b6610fd93054ba7cc61eee2ea870,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -1990,6 +2059,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 31e322ac4e1c52246839bf6439ca8d9c,
         type: 2}
+    - target: {fileID: 6187756568520578793, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6985570403658484600, guid: 4501b6610fd93054ba7cc61eee2ea870,
         type: 3}
       propertyPath: _boosterScriptable
@@ -2057,9 +2131,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f5afd8cf0004b7648b5d64835bec0872,
         type: 2}
+    - target: {fileID: 9150129837225348333, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 8249069900514156008, guid: 4501b6610fd93054ba7cc61eee2ea870,
+        type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1896515327}
     - targetCorrespondingSourceObject: {fileID: 1165905157893718460, guid: 4501b6610fd93054ba7cc61eee2ea870,
         type: 3}
       insertIndex: -1
