@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5143471178898678900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1129982054038654382}
+  - component: {fileID: 5223686019031877109}
+  m_Layer: 0
+  m_Name: -------- AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1129982054038654382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143471178898678900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5223686019031877109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5143471178898678900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bdad0bf02522c248a3f28eb9829482e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: Achat_Booster
+    Clip: {fileID: 8300000, guid: 9595ec882c2752241828b841ce2f6dff, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Attraper_une_carte
+    Clip: {fileID: 8300000, guid: e21b35712d8d1eb4fa0007c96fb79181, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Calcul_termine
+    Clip: {fileID: 8300000, guid: 1c46d730fe3b0d74bbdc70ce10ff3bdf, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Cliquer_sur_booster_pour_sortir_les_cartes
+    Clip: {fileID: 8300000, guid: 8a2aed6abb229e94fbfa417a908225e7, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Decouper_une_carte
+    Clip: {fileID: 8300000, guid: 9881a00a35ea4994f91498686aae5521, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Deposer_une_carte
+    Clip: {fileID: 8300000, guid: 36aa153996377104db5ef14dbd254c56, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Fin_de_journee
+    Clip: {fileID: 8300000, guid: ce2464318aec88c479c54dbc19213621, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: MainMusic
+    Clip: {fileID: 8300000, guid: 1693c4b4988b35e4c87f720ae818d66b, type: 3}
+    Volume: 0.75
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: Nouvelle_journee
+    Clip: {fileID: 8300000, guid: 6a0fcec9663eab145856a31d5b5206ad, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Recevoir_argent
+    Clip: {fileID: 8300000, guid: b0c7047d0e8c6df49bfdeba5710dfc38, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Transitions_Menus
+    Clip: {fileID: 8300000, guid: b779938631b62454281813f429ee2a81, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Taches_terminee
+    Clip: {fileID: 8300000, guid: 2d64011232d516a4bbf74007178a8f23, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}

@@ -19,7 +19,6 @@ public class CameraMovement : MonoBehaviour
 
     private void Start()
     {
-        // ChangeDir((Directions)3);
     }
 
     public void ChangeDir(Directions newDir)
