@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Card : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _textDisplay;
+    [FormerlySerializedAs("_textDisplay")] [SerializeField]
+    private TMP_Text _textDisplayBig;
+
+    [SerializeField] private TMP_Text _textDisplaySmall;
     [SerializeField] private GameObject _fx_DropCardOnGround;
 
     public string TextValue { get; set; }
@@ -16,7 +20,8 @@ public class Card : MonoBehaviour
     public void SetText(string text)
     {
         TextValue = text;
-        _textDisplay.text = text;
+        _textDisplayBig.text = text;
+        _textDisplaySmall.text = text;
     }
 
     public void InitAnim()
