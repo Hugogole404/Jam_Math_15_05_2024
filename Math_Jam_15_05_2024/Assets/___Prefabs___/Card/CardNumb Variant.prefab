@@ -163,10 +163,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4959489046928097602, guid: 8b846dd8061bfe54da448d1a1291a6e9,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7655917325239626115, guid: 8b846dd8061bfe54da448d1a1291a6e9,
         type: 3}
