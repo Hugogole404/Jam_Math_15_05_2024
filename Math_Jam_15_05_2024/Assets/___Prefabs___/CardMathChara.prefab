@@ -39,7 +39,7 @@ Transform:
   - {fileID: 850225726052959086}
   - {fileID: 2499955759018903879}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &1970008609324624444
 MeshFilter:
@@ -181,6 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textDisplay: {fileID: 0}
+  _fx_DropCardOnGround: {fileID: 7129660582519929512, guid: 75dec0f3006e27a418c1618b8c7f07a0,
+    type: 3}
   <SliderMgr>k__BackingField: {fileID: 729830946035960018}
 --- !u!1 &2685656664633531753
 GameObject:

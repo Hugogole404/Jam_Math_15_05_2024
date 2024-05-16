@@ -8,6 +8,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     [SerializeField] private TMP_Text _textDisplay;
+    [SerializeField] private GameObject _fx_DropCardOnGround;
 
     public string TextValue { get; set; }
 
@@ -31,5 +32,13 @@ public class Card : MonoBehaviour
         // {
         //     Destroy(gameObject);
         // });;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.GetComponent<CardTable>())
+        {
+            GameObject go = Instantiate(_fx_DropCardOnGround, transform.position, transform.rotation);
+        }
     }
 }

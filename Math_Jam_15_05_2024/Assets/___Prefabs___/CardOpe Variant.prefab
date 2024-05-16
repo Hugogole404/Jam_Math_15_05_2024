@@ -108,4 +108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textDisplay: {fileID: 1635430286547382233}
+  _fx_DropCardOnGround: {fileID: 7129660582519929512, guid: 75dec0f3006e27a418c1618b8c7f07a0,
+    type: 3}
   <Operator>k__BackingField: 0

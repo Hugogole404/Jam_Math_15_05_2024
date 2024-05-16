@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class CutInHalfCard : MonoBehaviour
 {
     [SerializeField] private GameObject _cardNumbrePrefab;
     [SerializeField] private float _timeBeforeCanCutAgain = 2;
+    [SerializeField] private GameObject _fx_CutInHalf;
 
     private bool _canCut;
 
@@ -17,8 +20,8 @@ public class CutInHalfCard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!_canCut) return;
-        
+        if (!_canCut) return;
+
         var card = other.GetComponent<CardNumber>();
         if (card != null && card.CanBeCut && card.Value > 1)
         {
@@ -48,13 +51,15 @@ public class CutInHalfCard : MonoBehaviour
 
         if (card.Value - firstHalf * 2 != 0)
             secondHalf++;
-        
-        // print($"first : {firstHalf} -- second {secondHalf}");
+
         SpawnNewCard(firstHalf, card.gameObject.transform);
         SpawnNewCard(secondHalf, card.gameObject.transform);
 
+        GameObject go = Instantiate(_fx_CutInHalf, card.gameObject.transform.position, Quaternion.identity);
+        go.transform.DORotate(new Vector3(-90, 0, 0), 0);
+
         StartCoroutine(TimeCanCanCutAgain());
-        
+
         Destroy(card.gameObject);
     }
 
