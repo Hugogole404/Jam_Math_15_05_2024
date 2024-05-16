@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class CheckTaskArea : MonoBehaviour
 {
-    [SerializeField] public int _wantedValue;
-    [SerializeField] public int _wantedColor;
     CardGrabber _grabber;
-    private void OnTriggerEnter(Collider other)
+    TaskManager _taskManager;
+    [HideInInspector] public int NumberEnter;
+    public GameObject ActualCard;
+    private void OnTriggerStay(Collider other)
     {
         if(_grabber.IsCardSelected == false && other.GetComponent<CardNumber>() != null)
         {
-            if(other.GetComponent<CardNumber>().Value == _wantedValue)
-            {
-                Cursor.visible = true;
-                Destroy(other.gameObject);
-            }
+            ActualCard = other.gameObject;
+            NumberEnter = other.GetComponent<CardNumber>().Value;
+            _taskManager.CheckTasks();
         }
     }
     private void Awake()
     {
         _grabber = FindObjectOfType<CardGrabber>();
+        _taskManager = FindObjectOfType<TaskManager>();
     }
 }

@@ -13,5 +13,6 @@ public class Task : MonoBehaviour
     [TextArea(5, 5)] public string Description;
     public int State;
     public int Value;
-    public int Reaward;
+    public int Reward;
+    public bool IsValidate;
 }
