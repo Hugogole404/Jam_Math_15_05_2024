@@ -27,39 +27,37 @@ public class TaskManager : MonoBehaviour
             else if (task.GetComponent<Task>().State == 2)
             {
                 //Vert
-                if (_cardColor.ColorIntervalMax <= task.GetComponent<Task>().Value && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax)
+                if (_cardColor.ColorIntervalMax >= task.GetComponent<Task>().Value && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax)
                 {
                     task.GetComponent<Task>().IsValidate = true;
                     print("Vert");
-                    Debug.Log(_cardColor.ColorIntervalMax);
-                    Debug.Log(_taskArea.NumberEnter);
                 }
                 //Bleu
-                else if (task.GetComponent<Task>().Value <= _cardColor.ColorIntervalMax1 && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax1 && task.GetComponent<Task>().Value >_cardColor.ColorIntervalMax)
+                else if (_cardColor.ColorIntervalMax1 >= task.GetComponent<Task>().Value && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax1 && _cardColor.ColorIntervalMax < task.GetComponent<Task>().Value)
                 {
                     task.GetComponent<Task>().IsValidate = true;
-                    print("Blleu");
+                    print("Bleu");
                 }
                 //Violet
-                else if (task.GetComponent<Task>().Value <= _cardColor.ColorIntervalMax2 && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax2 && task.GetComponent<Task>().Value >_cardColor.ColorIntervalMax1)
+                else if (task.GetComponent<Task>().Value >= _cardColor.ColorIntervalMax2 && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax2 && task.GetComponent<Task>().Value > _cardColor.ColorIntervalMax1)
                 {
                     task.GetComponent<Task>().IsValidate = true;
                     print("Violet");
                 }
                 //Rose
-                else if (task.GetComponent<Task>().Value <= _cardColor.ColorIntervalMax3 && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax3 && task.GetComponent<Task>().Value >_cardColor.ColorIntervalMax2)
+                else if (task.GetComponent<Task>().Value >= _cardColor.ColorIntervalMax3 && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax3 && task.GetComponent<Task>().Value > _cardColor.ColorIntervalMax2)
                 {
                     task.GetComponent<Task>().IsValidate = true;
                     print("Rose");
                 }
                 //Rouge
-                else if (task.GetComponent<Task>().Value <= _cardColor.ColorIntervalMax4 && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax4 && task.GetComponent<Task>().Value >_cardColor.ColorIntervalMax3)
+                else if (task.GetComponent<Task>().Value >= _cardColor.ColorIntervalMax4 && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax4 && task.GetComponent<Task>().Value > _cardColor.ColorIntervalMax3)
                 {
                     task.GetComponent<Task>().IsValidate = true;
                     print("Rouge");
                 }
                 //Orange
-                else if (task.GetComponent<Task>().Value <= _cardColor.ColorIntervalMax5 && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax5 && task.GetComponent<Task>().Value >_cardColor.ColorIntervalMax4)
+                else if (task.GetComponent<Task>().Value >= _cardColor.ColorIntervalMax5 && _taskArea.NumberEnter <= _cardColor.ColorIntervalMax5 && task.GetComponent<Task>().Value > _cardColor.ColorIntervalMax4)
                 {
                     task.GetComponent<Task>().IsValidate = true;
                     print("Orange");
