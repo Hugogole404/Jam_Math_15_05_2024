@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpriteBooster: {fileID: 21300000, guid: 4ac170e844ef6d64697a0be12af04183, type: 3}
   Cost: 10
-  EvenNumbersCount: 3
-  EvenNumbers: 020000000400000006000000080000000a0000000c00000018000000
+  EvenNumbersCount: 4
+  EvenNumbers: 02000000040000000600000008000000
   OddNumbersCount: 0
   OddNumbers: 01000000030000000500000007000000090000000d00000015000000
   OperatorsCount: 0

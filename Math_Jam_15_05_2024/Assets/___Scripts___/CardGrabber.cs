@@ -53,7 +53,7 @@ public class CardGrabber : MonoBehaviour
                     _selectedObject = hit.collider.gameObject.transform.parent.gameObject;
                     _selectedObject.GetComponent<Rigidbody>().freezeRotation = false;
                     
-                    //AudioManager.Instance.PlaySound("Attraper_une_carte");
+                    AudioManager.Instance.PlaySound("Attraper_une_carte");
 
 
                     if (_selectedObject.GetComponent<CardMathChara>())
@@ -96,6 +96,8 @@ public class CardGrabber : MonoBehaviour
             if (_wantCursorVisibility) Cursor.visible = true;
             _lastPos = new Vector3(0, 0, 0);
             IsCardSelected = false;
+            
+            AudioManager.Instance.PlaySound("Lacher_une_carte");
         }
 
         // verif si la card n'est pas nulle 

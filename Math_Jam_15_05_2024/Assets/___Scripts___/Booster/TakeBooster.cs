@@ -10,7 +10,7 @@ public class TakeBooster : MonoBehaviour
     [SerializeField] private GameObject _prefabBooster;
     [SerializeField] private BoosterScriptable _boosterScriptable;
     
-    [Header("--- values ---")]
+    [Header("--- Values ---")]
     [SerializeField] private TMP_Text _boosterText;
     [SerializeField] private Vector3 _boosterJumpPos = new Vector3(0,1,5);
     [SerializeField] private float _timeBeforeTakeAnotherBooster = 1;
@@ -52,6 +52,8 @@ public class TakeBooster : MonoBehaviour
         GameObject go = Instantiate(_prefabBooster, new Vector3(pos.x, pos.y +1, pos.z), _prefabBooster.transform.rotation);
         go.GetComponent<Booster>().Init(_boosterScriptable, _boosterJumpPos);
 
+        AudioManager.Instance.PlaySound("Achat_Booster");
+        
         StartCoroutine(WaitTilPickUpAgainBooster());
     }
 

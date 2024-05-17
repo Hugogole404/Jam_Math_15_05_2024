@@ -182,6 +182,8 @@ public class TaskManager : MonoBehaviour
             else
             {
                 _moneyManager.UpdateMoney(item.GetComponent<Task>().Reward);
+                Timeline.Instance.AddTime(15);
+                AudioManager.Instance.PlaySound("Taches_terminee");
                 _listTasksCompleted.Add(item);
             }
         }

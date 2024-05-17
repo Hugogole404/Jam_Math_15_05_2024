@@ -17,13 +17,6 @@ public class Card : MonoBehaviour
     public string TextValue { get; set; }
     private Vector3 _startSize;
 
-    private void Awake()
-    {
-        _startSize = gameObject.transform.localScale;
-
-        gameObject.transform.DOScale(0, 0);
-    }
-
     public void SetText(string text)
     {
         TextValue = text;
@@ -33,6 +26,10 @@ public class Card : MonoBehaviour
 
     public void InitAnim()
     {
+        _startSize = gameObject.transform.localScale;
+        
+        gameObject.transform.DOScale(0, 0);
+        gameObject.transform.DOKill();
         gameObject.transform.DOScale(_startSize, 1f).SetEase(Ease.OutBounce);
         // gameObject.transform.DOPunchScale(Vector3.one * .15f, .5f);
     }

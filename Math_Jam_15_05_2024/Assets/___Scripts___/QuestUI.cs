@@ -8,9 +8,11 @@ public class QuestUI : MonoBehaviour
     private void OnMouseDown()
     {
         UI.SetActive(true);
+        Timeline.Instance.UpdateTimelineState(false);
     }
     public void ClickCloseQuest()
     {
         UI.SetActive(false);
+        Timeline.Instance.UpdateTimelineState(true);
     }
 }

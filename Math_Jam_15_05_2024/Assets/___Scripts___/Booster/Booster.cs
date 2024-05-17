@@ -71,6 +71,7 @@ public class Booster : MonoBehaviour
             return;
         }
 
+        AudioManager.Instance.PlaySound("Cliquer_sur_booster_pour_sortir_les_cartes");
         _boosterPack.DOKill();
         // Lancer l'animation d'ouverture du booster pack
         OpenBoosterPack();
@@ -139,16 +140,15 @@ public class Booster : MonoBehaviour
     void OnDeathAnim()
     {
         if (_isOpen) return;
-
-        _boosterPack.DOKill();
-        _boosterPack.DOScale(0, 0.5f).SetEase(Ease.InBounce).OnComplete(GoKillAndSpawnCard);
-
+        
         // Spawn card ...
         SpawnNumbers(_boosterInfos.EvenNumbers, _boosterInfos.EvenNumbersCount);
         SpawnNumbers(_boosterInfos.OddNumbers, _boosterInfos.OddNumbersCount);
         SpawnOperators();
         SpawnMathematicians();
 
+        _boosterPack.DOKill();
+        _boosterPack.DOScale(0, 0.5f).SetEase(Ease.InBounce);//.OnComplete(GoKillAndSpawnCard);
         
         _isOpen = true;
     }

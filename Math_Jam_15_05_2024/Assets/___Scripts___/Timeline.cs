@@ -12,6 +12,7 @@ public class Timeline : MonoBehaviour
     [SerializeField] private Gradient _colorGradient; // Gradient de couleur pour représenter le temps restant
     [SerializeField] private AnimationCurve _widthCurve; // Courbe d'animation pour la largeur du sprite
     [SerializeField] private SpriteRenderer _spriteRenderer; // Référence au composant SpriteRenderer
+    
     private float _startTime; // Temps de début de la timeline
     private float _startTimeSecond; // Temps de début de la timeline
     private bool _canGo;
